@@ -36,12 +36,36 @@ public class Trap : MonoBehaviour {
     {
         Debug.Log("activate");
         isActivated = true;
+
+        switch (type) {
+            case Type.Spike:
+                Debug.Log("I am a spike");
+                gameObject.SetActive(true);
+                break;
+            case Type.Arrow:
+                break;
+            case Type.Platform:
+                break;
+        }
+        
     }
 
     public void deactivate()
     {
-        transform.position = initPos;
+        //transform.position = initPos;
         isActivated = false;
+        Debug.Log("Deactivate");
+
+        switch (type) {
+            case Type.Spike:
+                Debug.Log("Reset spike");
+                gameObject.SetActive(false);
+                break;
+            case Type.Arrow:
+                break;
+            case Type.Platform:
+                break;
+        }
     }
 
     private void Update()
@@ -51,9 +75,8 @@ public class Trap : MonoBehaviour {
             switch (type)
             {
                 case Type.Spike:
-                    Debug.Log("I am a spike");
                     // Move the object upward in world space 1 unit/second.
-                    transform.Translate(1 * Vector3.up * Time.deltaTime, Space.World);
+                    //transform.Translate(1 * Vector3.up * Time.deltaTime, Space.World);
                     break;
                 case Type.Arrow:
                     break;

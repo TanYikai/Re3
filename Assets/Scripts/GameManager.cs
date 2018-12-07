@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     private static GameObject player;
     private static GameManager Instance;
     private static GameObject timerText;
-    private static Trap[] traps;
+    private static List<Trap> traps;
+    private static GameObject[] trapGameObjects;
 
     private void Start()
     {
@@ -26,8 +27,17 @@ public class GameManager : MonoBehaviour
         level = 0;
         player = GameObject.Find("player");
         timerText = GameObject.Find("TimerText");
-        traps = FindObjectsOfType(typeof(Trap)) as Trap[];
+        //traps = FindObjectsOfType(typeof(Trap)) as Trap[];
+        trapGameObjects = GameObject.FindGameObjectsWithTag("Trap");
+        traps = new List<Trap>();
+        Debug.Log(trapGameObjects.Length);
+        foreach (GameObject trapGameObject in trapGameObjects) {
+            traps.Add(trapGameObject.GetComponent<Trap>());
+        }
+
+        Debug.Log(traps);
         initLevel();
+        resetTraps();
     }
 
     private static void initLevel()
