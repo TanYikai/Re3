@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private static Vector3 playerInitPos;
     private static GameManager Instance;
     private static GameObject timerText;
+    private static GameObject fadeScreen;
     private static List<Trap> traps;
     private static List<Trigger> trapTriggers;
     private static GameObject[] trapGameObjects;
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.Find("player");
         playerInitPos = player.transform.position;
         timerText = GameObject.Find("TimerText");
+        fadeScreen = GameObject.Find("FadeScreen");
         disappearPlatforms = GameObject.FindGameObjectsWithTag("Disappear");
         //traps = FindObjectsOfType(typeof(Trap)) as Trap[];
         trapGameObjects = GameObject.FindGameObjectsWithTag("Trap");
@@ -121,6 +123,7 @@ public class GameManager : MonoBehaviour
         }
         resetTraps();
         timerText.GetComponent<Timer>().stopTimer();
+        fadeScreen.GetComponent<Fade>().FadeIn();
         initLevel();
     }
 
