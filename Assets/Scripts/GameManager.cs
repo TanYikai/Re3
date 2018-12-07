@@ -6,10 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public bool debug;
     public static bool hasPickedUp;
+    public static int level;
 
     private static GameObject player;
     private static GameManager Instance;
-    private static int level;
     private static GameObject timerText;
 
     private void Start()
