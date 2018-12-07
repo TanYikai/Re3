@@ -42,7 +42,7 @@ public class Timer : MonoBehaviour {
             if (secondsLeft == "0")
             {
                 stopTimer();
-                //GameManager.restartLevel(false);
+                GameManager.restartLevel(false);
             }
         }
     }
