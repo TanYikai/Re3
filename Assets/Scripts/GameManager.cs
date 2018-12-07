@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool debug;
+    public static bool hasPickedUp;
 
     private static GameObject player;
     private static GameManager Instance;
     private static int level;
+    private static GameObject timerText;
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
         }
         level = 0;
         player = GameObject.Find("player");
+        timerText = GameObject.Find("TimerText");
         initLevel();
     }
 
@@ -78,15 +81,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static void goal()
+    public static void restartLevel(bool hasCompletedLevel)
     {
-        incLevel();
+        hasPickedUp = false;
+        if (hasCompletedLevel)
+        {
+            level++;
+        }
+        timerText.GetComponent<Timer>().stopTimer();
         initLevel();
     }
 
-    private static void incLevel()
+    public static void startTimerCountdown()
     {
-        level++;
+        timerText.GetComponent<Timer>().startTimer();
     }
 
     public static GameManager getInstance()
