@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour {
 
-    public enum Type {Spike, Arrow, Platform, Bounce};
+    public enum Type {Spike, Arrow, Platform, Bounce, Wall};
     public Type type;
+    public Vector3 dir;
     private Vector3 initPos;
     private bool isActivated;
 
@@ -30,21 +31,28 @@ public class Trap : MonoBehaviour {
         {
             type = Type.Bounce;
         }
+        else if (gameObject.name.Contains("wall"))
+        {
+            type = Type.Wall;
+        }
     }
 
     public void activate()
     {
         Debug.Log("activate");
         isActivated = true;
+        gameObject.SetActive(true);
 
         switch (type) {
             case Type.Spike:
                 Debug.Log("I am a spike");
-                gameObject.SetActive(true);
                 break;
             case Type.Arrow:
+                Debug.Log("I am a arrow");
                 break;
             case Type.Platform:
+                Debug.Log("I am a platform");
+                StartCoroutine(locationTransition(transform.position, transform.position + dir));
                 break;
         }
         
@@ -59,13 +67,17 @@ public class Trap : MonoBehaviour {
         switch (type) {
             case Type.Spike:
                 Debug.Log("Reset spike");
-                gameObject.SetActive(false);
                 break;
             case Type.Arrow:
+                Debug.Log("Reset arrow");
+                gameObject.transform.position = initPos;
                 break;
             case Type.Platform:
+                Debug.Log("Reset platform");
+                gameObject.transform.position = initPos;
                 break;
         }
+        gameObject.SetActive(false);
     }
 
     private void Update()
@@ -79,12 +91,24 @@ public class Trap : MonoBehaviour {
                     //transform.Translate(1 * Vector3.up * Time.deltaTime, Space.World);
                     break;
                 case Type.Arrow:
+                    transform.Translate(1 * dir * Time.deltaTime, Space.World);
                     break;
                 case Type.Platform:
                     break;
             }
         }
     }
-    
+
+    IEnumerator locationTransition(Vector3 startPosition, Vector3 endPosition)
+    {
+        float currentAnimationTime = 0.0f;
+        float totalAnimationTime = 0.05f;
+        while (currentAnimationTime < totalAnimationTime)
+        {
+            currentAnimationTime += Time.deltaTime;
+            transform.position = Vector3.Lerp(startPosition, endPosition, currentAnimationTime / totalAnimationTime);
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
 
 }
