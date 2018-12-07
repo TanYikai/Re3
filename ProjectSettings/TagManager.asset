@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Key
+  - Trigger
+  - Trap
   layers:
   - Default
   - TransparentFX

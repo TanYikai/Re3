@@ -108,5 +108,11 @@ public class PlayerManager : MonoBehaviour
             GameManager.hasPickedUp = true;
             GameManager.startTimerCountdown();
         }
+
+        if (collision.gameObject.tag == "Trap")
+        {
+            Debug.Log("I died");
+            GameManager.restartLevel(false);
+        }
     }
 }
