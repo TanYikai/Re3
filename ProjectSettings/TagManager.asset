@@ -8,6 +8,7 @@ TagManager:
   - Key
   - Trigger
   - Trap
+  - Disappear
   layers:
   - Default
   - TransparentFX

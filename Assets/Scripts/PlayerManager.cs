@@ -110,7 +110,7 @@ public class PlayerManager : MonoBehaviour
 
         if (collision.gameObject.tag == "Trap")
         {
-            Debug.Log("It's a "+ collision.gameObject.GetComponent<Trap>().type + "trap");
+            Debug.Log("It's a "+ collision.gameObject.GetComponent<Trap>().type + " trap");
             if (collision.gameObject.GetComponent<Trap>().type == Trap.Type.Platform)
             {
                 Debug.Log("On a fallen platform");

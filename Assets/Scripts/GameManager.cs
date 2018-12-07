@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private static GameObject timerText;
     private static List<Trap> traps;
     private static GameObject[] trapGameObjects;
-    private static GameObject disappearPlatform;
+    private static GameObject[] disappearPlatforms;
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.Find("player");
         playerInitPos = player.transform.position;
         timerText = GameObject.Find("TimerText");
-        disappearPlatform = GameObject.Find("disappear_platform");
+        disappearPlatforms = GameObject.FindGameObjectsWithTag("Disappear");
         //traps = FindObjectsOfType(typeof(Trap)) as Trap[];
         trapGameObjects = GameObject.FindGameObjectsWithTag("Trap");
         traps = new List<Trap>();
@@ -115,7 +115,11 @@ public class GameManager : MonoBehaviour
         {
             trap.deactivate();
         }
-        disappearPlatform.SetActive(true);
+        foreach (GameObject platform in disappearPlatforms)
+        {
+            platform.SetActive(true);
+        }
+        
     }
 
     public static void startTimerCountdown()

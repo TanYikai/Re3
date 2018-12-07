@@ -67,17 +67,20 @@ public class Trap : MonoBehaviour {
         switch (type) {
             case Type.Spike:
                 Debug.Log("Reset spike");
+                gameObject.SetActive(false);
                 break;
             case Type.Arrow:
                 Debug.Log("Reset arrow");
                 gameObject.transform.position = initPos;
+                gameObject.SetActive(false);
                 break;
             case Type.Platform:
                 Debug.Log("Reset platform");
-                gameObject.transform.position = initPos;
+                gameObject.transform.position = new Vector3(2.06f,3.8f,0);
+                gameObject.SetActive(true);
                 break;
         }
-        gameObject.SetActive(false);
+        
     }
 
     private void Update()
@@ -102,7 +105,7 @@ public class Trap : MonoBehaviour {
     IEnumerator locationTransition(Vector3 startPosition, Vector3 endPosition)
     {
         float currentAnimationTime = 0.0f;
-        float totalAnimationTime = 0.05f;
+        float totalAnimationTime = 2f;
         while (currentAnimationTime < totalAnimationTime)
         {
             currentAnimationTime += Time.deltaTime;
