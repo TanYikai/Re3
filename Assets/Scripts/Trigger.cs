@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Trigger : MonoBehaviour
 {
-    public int triggerLevel;
+    public int trapLevel;
+    public bool isEnabled;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (isEnabled && collision.gameObject.tag == "Player")
         {
             foreach (Transform child in gameObject.transform)
             {
-                child.gameObject.GetComponent<Trap>().initTrap();
+                child.gameObject.SetActive(true);
                 child.gameObject.GetComponent<Trap>().activate();
             }
         }

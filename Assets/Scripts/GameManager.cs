@@ -45,71 +45,25 @@ public class GameManager : MonoBehaviour
             traps.Add(trapGameObject.GetComponent<Trap>());
         }
 
-        Debug.Log(traps);
-        initLevel();
-        resetTraps();
-    }
-
-    private static void initLevel()
-    {
-        // TODO: move player back to initial position
-        player.GetComponent<Transform>().position = playerInitPos;
-
-        // TODO: initialise variables needed for each level
-        switch (level)
+        foreach (Trap trap in traps)
         {
-            case 0:
-                Debug.Log("Level 0");
-                break;
-            case 1:
-                Debug.Log("Level 1");
-                break;
-            case 2:
-                Debug.Log("Level 2");
-                break;
-            case 3:
-                Debug.Log("Level 3");
-                break;
-            case 4:
-                Debug.Log("Level 4");
-                break;
-            case 5:
-                Debug.Log("Level 5");
-                break;
-            case 6:
-                Debug.Log("Level 6");
-                break;
-            case 7:
-                Debug.Log("Level 7");
-                break;
-            case 8:
-                Debug.Log("Level 8");
-                break;
-            case 9:
-                Debug.Log("Level 9");
-                break;
-            case 10:
-                Debug.Log("Level 10");
-                break;
-            case 11:
-                Debug.Log("Level 11");
-                break;
-            case 12:
-                Debug.Log("Level 12");
-                break;
-            default:
-                Debug.Log("Not a valid level");
-                break;
+            trap.initTrap();
         }
 
+        resetTraps();
+        setUpLevel();
+    }
+
+    private static void setUpLevel()
+    {
+        Debug.Log("Level " + level);
         foreach (GameObject trigger in trapTriggerGameObjects) {
-            Debug.Log(trigger.name);
-            if (level >= trigger.GetComponent<Trigger>().triggerLevel)
+            if (level >= trigger.GetComponent<Trigger>().trapLevel)
             {
-                trigger.SetActive(true);
+                trigger.GetComponent<Trigger>().isEnabled = true;
             }
             else {
-                trigger.SetActive(false);
+                trigger.GetComponent<Trigger>().isEnabled = false;
             }
         }
     }
@@ -121,10 +75,12 @@ public class GameManager : MonoBehaviour
         {
             level++;
         }
+        // TODO: move player back to initial position
+        player.GetComponent<Transform>().position = playerInitPos;
         resetTraps();
         timerText.GetComponent<Timer>().stopTimer();
         fadeScreen.GetComponent<Fade>().FadeIn();
-        initLevel();
+        setUpLevel();
     }
 
     public static void resetTraps()

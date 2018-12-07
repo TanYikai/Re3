@@ -113,15 +113,18 @@ public class PlayerManager : MonoBehaviour
             Debug.Log("It's a "+ collision.gameObject.GetComponent<Trap>().type + " trap");
             if (collision.gameObject.GetComponent<Trap>().type == Trap.Type.Platform)
             {
-                Debug.Log("On a fallen platform");
-                if (gameObject.transform.position.y < collision.gameObject.transform.position.y)
+                if (collision.gameObject.GetComponent<Trap>().isActivated)
                 {
-                    killPlayer();
-                }
-                else
-                {
-                    rb.velocity = new Vector3(0, 0, 0);
-                    isJumping = false;
+                    if (gameObject.transform.position.y < collision.gameObject.transform.position.y)
+                    {
+                        killPlayer();
+                    }
+                    else
+                    {
+                        Debug.Log("On a fallen platform");
+                        rb.velocity = new Vector3(0, 0, 0);
+                        isJumping = false;
+                    }
                 }
             }
             else if (collision.gameObject.GetComponent<Trap>().type == Trap.Type.Bounce)

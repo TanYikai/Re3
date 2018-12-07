@@ -8,7 +8,7 @@ public class Trap : MonoBehaviour {
     public Type type;
     public Vector3 dir;
     private Vector3 initPos;
-    private bool isActivated;
+    public bool isActivated;
 
     public void initTrap()
     {
@@ -34,28 +34,34 @@ public class Trap : MonoBehaviour {
         else if (gameObject.name.Contains("wall"))
         {
             type = Type.Wall;
+            gameObject.SetActive(false);
         }
     }
 
     public void activate()
     {
         Debug.Log("activate");
-        isActivated = true;
-        gameObject.SetActive(true);
 
         switch (type) {
             case Type.Spike:
-                Debug.Log("I am a spike");
+                //Debug.Log("I am a spike");
                 break;
             case Type.Arrow:
-                Debug.Log("I am a arrow");
+                //Debug.Log("I am a arrow");
                 break;
             case Type.Platform:
-                Debug.Log("I am a platform");
+                //Debug.Log("I am a platform");
+                if (!isActivated)
                 StartCoroutine(locationTransition(transform.position, transform.position + dir));
                 break;
+            case Type.Wall:
+                //Debug.Log("I am a wall");
+                break;
         }
-        
+
+        isActivated = true;
+        gameObject.SetActive(true);
+
     }
 
     public void deactivate()
@@ -79,8 +85,16 @@ public class Trap : MonoBehaviour {
                 gameObject.transform.position = new Vector3(2.06f,3.8f,0); //stopgap measure
                 gameObject.SetActive(true);
                 break;
+            case Type.Bounce:
+                //Debug.Log("Reset bounce");
+                gameObject.SetActive(false);
+                break;
+            case Type.Wall:
+                Debug.Log("Reset wall");
+                gameObject.SetActive(false);
+                break;
         }
-        
+
     }
 
     private void Update()
@@ -96,8 +110,6 @@ public class Trap : MonoBehaviour {
                 case Type.Arrow:
                     transform.Translate(1 * dir * Time.deltaTime, Space.World);
                     break;
-                case Type.Platform:
-                    break;
             }
         }
     }
@@ -105,7 +117,7 @@ public class Trap : MonoBehaviour {
     IEnumerator locationTransition(Vector3 startPosition, Vector3 endPosition)
     {
         float currentAnimationTime = 0.0f;
-        float totalAnimationTime = 2f;
+        float totalAnimationTime = 0.5f;
         while (currentAnimationTime < totalAnimationTime)
         {
             currentAnimationTime += Time.deltaTime;

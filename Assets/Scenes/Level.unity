@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3ca612390502a44bc335dc1902c55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerLevel: 3
+  trapLevel: 3
 --- !u!61 &46900347
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3ca612390502a44bc335dc1902c55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerLevel: 9
+  trapLevel: 9
 --- !u!61 &62876368
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -664,143 +664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  dir: {x: 0, y: -2, z: 0}
---- !u!1 &157251804
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 157251807}
-  - component: {fileID: 157251806}
-  - component: {fileID: 157251805}
-  m_Layer: 0
-  m_Name: SfxManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &157251805
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 157251804}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &157251806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 157251804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94803c61c6511b04087b2d86d71b9cb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &157251807
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 157251804}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9349709, y: 0.24487796, z: -9.947046}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 33
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  dir: {x: 0, y: -1, z: 0}
 --- !u!1 &218625842
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3ca612390502a44bc335dc1902c55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerLevel: 6
+  trapLevel: 6
 --- !u!61 &218625844
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1031,6 +895,11 @@ Prefab:
       propertyPath: trapLvl
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114681698222061422, guid: 8ffdc2ab94266394d88430fbfec8676d,
+        type: 2}
+      propertyPath: trapLevel
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ffdc2ab94266394d88430fbfec8676d, type: 2}
   m_IsPrefabAsset: 0
@@ -1127,7 +996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3ca612390502a44bc335dc1902c55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerLevel: 12
+  trapLevel: 12
 --- !u!61 &322269029
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1392,7 +1261,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1715,12 +1584,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 81d351096be35d242a456f71e6c90fe9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1453a0c7700e3554e89b16022b9e96db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 16, y: 10}
+  m_Size: {x: 0.3, y: 0.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1734,7 +1603,7 @@ Transform:
   m_GameObject: {fileID: 661385913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.412, y: 0.285, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 60, y: 40, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -1789,6 +1658,10 @@ Prefab:
     - target: {fileID: 4905000166335358, guid: 47cbf864e62f3724183e13b8b1484833, type: 2}
       propertyPath: m_LocalScale.y
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618969154399970, guid: 47cbf864e62f3724183e13b8b1484833, type: 2}
+      propertyPath: m_TagString
+      value: Trap
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47cbf864e62f3724183e13b8b1484833, type: 2}
@@ -1988,6 +1861,11 @@ Prefab:
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114190559612534518, guid: 83108db0d8716574b92e0f4f5b9250af,
+        type: 2}
+      propertyPath: trapLevel
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 61525568140873706, guid: 83108db0d8716574b92e0f4f5b9250af, type: 2}
@@ -2199,7 +2077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3ca612390502a44bc335dc1902c55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerLevel: 2
+  trapLevel: 2
 --- !u!61 &998019714
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2319,7 +2197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3ca612390502a44bc335dc1902c55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerLevel: 11
+  trapLevel: 11
 --- !u!61 &1027634002
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2801,6 +2679,11 @@ Prefab:
       propertyPath: trapLvl
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114681698222061422, guid: 8ffdc2ab94266394d88430fbfec8676d,
+        type: 2}
+      propertyPath: trapLevel
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ffdc2ab94266394d88430fbfec8676d, type: 2}
   m_IsPrefabAsset: 0
@@ -2905,6 +2788,11 @@ Prefab:
     - target: {fileID: 114394701631638612, guid: 1de5370d8f3710d49a297e9054b5429d,
         type: 2}
       propertyPath: triggerLevel
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114394701631638612, guid: 1de5370d8f3710d49a297e9054b5429d,
+        type: 2}
+      propertyPath: trapLevel
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4204,7 +4092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3ca612390502a44bc335dc1902c55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerLevel: 7
+  trapLevel: 7
 --- !u!61 &1964378694
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4439,7 +4327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2061249859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4452,7 +4340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3ca612390502a44bc335dc1902c55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerLevel: 8
+  trapLevel: 8
 --- !u!61 &2061249860
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4572,7 +4460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3ca612390502a44bc335dc1902c55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerLevel: 10
+  trapLevel: 10
 --- !u!61 &2069447980
 BoxCollider2D:
   m_ObjectHideFlags: 0
