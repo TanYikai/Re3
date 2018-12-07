@@ -62,21 +62,21 @@ public class Trap : MonoBehaviour {
     {
         //transform.position = initPos;
         isActivated = false;
-        Debug.Log("Deactivate");
+        //Debug.Log("Deactivate");
 
         switch (type) {
             case Type.Spike:
-                Debug.Log("Reset spike");
+                //Debug.Log("Reset spike");
                 gameObject.SetActive(false);
                 break;
             case Type.Arrow:
-                Debug.Log("Reset arrow");
+                //Debug.Log("Reset arrow");
                 gameObject.transform.position = initPos;
                 gameObject.SetActive(false);
                 break;
             case Type.Platform:
-                Debug.Log("Reset platform");
-                gameObject.transform.position = new Vector3(2.06f,3.8f,0);
+                //Debug.Log("Reset platform");
+                gameObject.transform.position = new Vector3(2.06f,3.8f,0); //stopgap measure
                 gameObject.SetActive(true);
                 break;
         }

@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour
     private static GameManager Instance;
     private static GameObject timerText;
     private static List<Trap> traps;
+    private static List<Trigger> trapTriggers;
     private static GameObject[] trapGameObjects;
+    private static GameObject[] trapTriggerGameObjects;
     private static GameObject[] disappearPlatforms;
 
     private void Start()
@@ -33,6 +35,8 @@ public class GameManager : MonoBehaviour
         disappearPlatforms = GameObject.FindGameObjectsWithTag("Disappear");
         //traps = FindObjectsOfType(typeof(Trap)) as Trap[];
         trapGameObjects = GameObject.FindGameObjectsWithTag("Trap");
+        trapTriggerGameObjects = GameObject.FindGameObjectsWithTag("Trigger");
+        trapTriggers = new List<Trigger>();
         traps = new List<Trap>();
         Debug.Log(trapGameObjects.Length);
         foreach (GameObject trapGameObject in trapGameObjects) {
@@ -94,6 +98,17 @@ public class GameManager : MonoBehaviour
             default:
                 Debug.Log("Not a valid level");
                 break;
+        }
+
+        foreach (GameObject trigger in trapTriggerGameObjects) {
+            Debug.Log(trigger.name);
+            if (level >= trigger.GetComponent<Trigger>().triggerLevel)
+            {
+                trigger.SetActive(true);
+            }
+            else {
+                trigger.SetActive(false);
+            }
         }
     }
 

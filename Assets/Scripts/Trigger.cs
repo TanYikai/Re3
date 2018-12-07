@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Trigger : MonoBehaviour
 {
+    public int triggerLevel;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
