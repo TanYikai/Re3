@@ -57,7 +57,7 @@ public class PlayerManager : MonoBehaviour
             if (!isJumping && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))
             {
                 isJumping = true;
-                //SfxManager.PlaySound("jump");
+                SfxManager.PlaySound("jump");
                 //anim.SetBool("isJumping", true);
                 rb.velocity = new Vector3(rb.velocity.x, jumpSpeedY, 0);
             }
@@ -127,7 +127,7 @@ public class PlayerManager : MonoBehaviour
             else if (collision.gameObject.GetComponent<Trap>().type == Trap.Type.Bounce)
             {
                 isJumping = true;
-                //SfxManager.PlaySound("jump");
+                SfxManager.PlaySound("jump");
                 //anim.SetBool("isJumping", true);
                 rb.velocity = new Vector3(rb.velocity.x, jumpSpeedY * 2, 0);
             }
@@ -144,6 +144,7 @@ public class PlayerManager : MonoBehaviour
 
     private void killPlayer() {
         Debug.Log("I died");
+        SfxManager.PlaySound("clockDeath");
         GameManager.restartLevel(false);
     }
 }
