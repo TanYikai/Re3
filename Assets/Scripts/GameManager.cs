@@ -98,6 +98,14 @@ public class GameManager : MonoBehaviour
         initLevel();
     }
 
+    public static void resetTraps()
+    {
+        foreach (Trap trap in traps)
+        {
+            trap.deactivate();
+        }
+    }
+
     public static void startTimerCountdown()
     {
         timerText.GetComponent<Timer>().startTimer();

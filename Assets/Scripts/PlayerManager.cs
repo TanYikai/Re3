@@ -105,8 +105,9 @@ public class PlayerManager : MonoBehaviour
         if (collision.gameObject.tag == "Key" && !GameManager.hasPickedUp)
         {
             Debug.Log("pick up key");
-            GameManager.hasPickedUp = true;
+            GameManager.resetTraps();
             GameManager.startTimerCountdown();
+            GameManager.hasPickedUp = true;
         }
 
         if (collision.gameObject.tag == "Trap")
