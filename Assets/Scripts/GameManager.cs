@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static int level;
 
     private static GameObject player;
+    private static Vector3 playerInitPos;
     private static GameManager Instance;
     private static GameObject timerText;
     private static List<Trap> traps;
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
         }
         level = 0;
         player = GameObject.Find("player");
+        playerInitPos = player.transform.position;
         timerText = GameObject.Find("TimerText");
         disappearPlatform = GameObject.Find("disappear_platform");
         //traps = FindObjectsOfType(typeof(Trap)) as Trap[];
@@ -45,7 +47,7 @@ public class GameManager : MonoBehaviour
     private static void initLevel()
     {
         // TODO: move player back to initial position
-        player.GetComponent<Transform>().position = new Vector3(-6.0f, -2.0f, 0);
+        player.GetComponent<Transform>().position = playerInitPos;
 
         // TODO: initialise variables needed for each level
         switch (level)
