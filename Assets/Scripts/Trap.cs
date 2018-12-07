@@ -40,7 +40,7 @@ public class Trap : MonoBehaviour {
 
     public void activate()
     {
-        Debug.Log("activate");
+        //Debug.Log("activate");
 
         switch (type) {
             case Type.Spike:
@@ -52,7 +52,10 @@ public class Trap : MonoBehaviour {
             case Type.Platform:
                 //Debug.Log("I am a platform");
                 if (!isActivated)
-                StartCoroutine(locationTransition(transform.position, transform.position + dir));
+                {
+                    isActivated = true;
+                    StartCoroutine(locationTransition(transform.position, transform.position + dir));
+                }
                 break;
             case Type.Wall:
                 //Debug.Log("I am a wall");
@@ -120,6 +123,11 @@ public class Trap : MonoBehaviour {
         float totalAnimationTime = 0.5f;
         while (currentAnimationTime < totalAnimationTime)
         {
+            if (!isActivated)
+            {
+                break;
+            }
+
             currentAnimationTime += Time.deltaTime;
             transform.position = Vector3.Lerp(startPosition, endPosition, currentAnimationTime / totalAnimationTime);
             yield return new WaitForSeconds(0.01f);
