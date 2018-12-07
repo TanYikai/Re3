@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -112,8 +110,35 @@ public class PlayerManager : MonoBehaviour
 
         if (collision.gameObject.tag == "Trap")
         {
-            Debug.Log("I died");
-            GameManager.restartLevel(false);
+            Debug.Log("It's a "+ collision.gameObject.GetComponent<Trap>().type + "trap");
+            if (collision.gameObject.GetComponent<Trap>().type == Trap.Type.Platform)
+            {
+                Debug.Log("On a fallen platform");
+                if (gameObject.transform.position.y < collision.gameObject.transform.position.y)
+                {
+                    killPlayer();
+                }
+                else
+                {
+                    rb.velocity = new Vector3(0, 0, 0);
+                    isJumping = false;
+                }
+            }
+            else if (collision.gameObject.GetComponent<Trap>().type == Trap.Type.Bounce) {
+                isJumping = true;
+                //SfxManager.PlaySound("jump");
+                //anim.SetBool("isJumping", true);
+                rb.velocity = new Vector3(rb.velocity.x, jumpSpeedY*2, 0);
+            }
+            else
+            {
+                killPlayer();
+            }
         }
+    }
+
+    private void killPlayer() {
+        Debug.Log("I died");
+        GameManager.restartLevel(false);
     }
 }

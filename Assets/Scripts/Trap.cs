@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour {
 
-    private enum Type {Spike, Arrow, Platform};
-    private Type type;
+    public enum Type {Spike, Arrow, Platform, Bounce};
+    public Type type;
     private Vector3 initPos;
     private bool isActivated;
 
@@ -25,6 +25,10 @@ public class Trap : MonoBehaviour {
         else if (gameObject.name.Contains("platform"))
         {
             type = Type.Platform;
+        }
+        else if (gameObject.name.Contains("bounce"))
+        {
+            type = Type.Bounce;
         }
     }
 
@@ -58,5 +62,6 @@ public class Trap : MonoBehaviour {
             }
         }
     }
+    
 
 }
