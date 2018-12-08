@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -57,13 +58,17 @@ public class GameManager : MonoBehaviour
     private static void setUpLevel()
     {
         Debug.Log("Level " + level);
-        foreach (GameObject trigger in trapTriggerGameObjects) {
-            if (level >= trigger.GetComponent<Trigger>().trapLevel)
-            {
-                trigger.GetComponent<Trigger>().isEnabled = true;
-            }
-            else {
-                trigger.GetComponent<Trigger>().isEnabled = false;
+        if (level >= 13) {
+            Debug.Log("End");
+            fadeScreen.GetComponent<Fade>().FadeOut();
+
+        } else {
+            foreach (GameObject trigger in trapTriggerGameObjects) {
+                if (level >= trigger.GetComponent<Trigger>().trapLevel) {
+                    trigger.GetComponent<Trigger>().isEnabled = true;
+                } else {
+                    trigger.GetComponent<Trigger>().isEnabled = false;
+                }
             }
         }
     }
