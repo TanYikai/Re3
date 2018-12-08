@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -95,6 +96,7 @@ public class PlayerManager : MonoBehaviour
         // for jump
         if (isJumping && collision.gameObject.tag == "Ground" && rb.velocity.y <= 0)
         {
+            Debug.Log("JUmp reset");
             rb.velocity = new Vector3(0, 0, 0);
             isJumping = false;
             //anim.SetBool("isJumping", false);
@@ -148,6 +150,14 @@ public class PlayerManager : MonoBehaviour
     private void killPlayer() {
         Debug.Log("I died");
         SfxManager.PlaySound("clockDeath");
+        isDead = true;
         GameManager.restartLevel(false);
+        StartCoroutine(delayInput(0.9f));
+    }
+
+    IEnumerator delayInput(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isDead = false;
     }
 }

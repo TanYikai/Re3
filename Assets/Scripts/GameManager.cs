@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     private static void setUpLevel()
     {
         Debug.Log("Level " + level);
-        if (level >= 13) {
+        if (level >= 12) {
             Debug.Log("End");
             fadeScreen.GetComponent<Fade>().FadeOut();
 
@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
         }
         // TODO: move player back to initial position
         player.GetComponent<Transform>().position = playerInitPos;
+        player.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         resetTraps();
         timerText.GetComponent<Timer>().stopTimer();
         fadeScreen.GetComponent<Fade>().FadeIn();
