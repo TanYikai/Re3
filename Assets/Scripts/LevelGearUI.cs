@@ -18,7 +18,7 @@ public class LevelGearUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        for (int i = 0; i < GameManager.level; i++)
+        for (int i = 0; i <12; i++)
         {
             Color color = gears[i].GetComponent<SpriteRenderer>().color;
             color.a = 0.60f;
