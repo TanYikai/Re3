@@ -85,7 +85,7 @@ public class Trap : MonoBehaviour {
                 break;
             case Type.Platform:
                 //Debug.Log("Reset platform");
-                gameObject.transform.position = new Vector3(2.06f,3.73f,0); //stopgap measure
+                gameObject.transform.position = initPos; //new Vector3(2.36f,3.63f,0); //stopgap measure
                 gameObject.SetActive(true);
                 break;
             case Type.Bounce:
