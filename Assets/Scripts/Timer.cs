@@ -26,12 +26,20 @@ public class Timer : MonoBehaviour {
         SfxManager.PlaySound("ticking");
     }
 
-    public void stopTimer()
+    public void stopTimer(bool hasCompletedLevel)
     {
-        SfxManager.PlaySound("stop");
-        SfxManager.PlaySound("clockDeath");
-        timerText.text = "";
-        startCd = false;
+        if (!hasCompletedLevel)
+        {
+            SfxManager.PlaySound("stop");
+            SfxManager.PlaySound("clockDeath");
+            timerText.text = "";
+            startCd = false;
+        } else
+        {
+            SfxManager.PlaySound("levelComplete");
+            timerText.text = "";
+            startCd = false;
+        }
     }
 
     // Update is called once per frame
@@ -44,7 +52,7 @@ public class Timer : MonoBehaviour {
 
             if (secondsLeft == "0")
             {
-                stopTimer();
+                stopTimer(false);
 
                 GameManager.restartLevel(false);
             }

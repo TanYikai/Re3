@@ -8,6 +8,8 @@ public class SfxManager : MonoBehaviour {
     public static AudioClip arrowShooting;
     public static AudioClip backgroundMusic;
     public static AudioClip ticking;
+    public static AudioClip endGame;
+    public static AudioClip levelComplete;
 
     private static bool muteSfx;
 
@@ -21,6 +23,8 @@ public class SfxManager : MonoBehaviour {
         arrowShooting = Resources.Load<AudioClip>("Arrow");
         backgroundMusic = Resources.Load<AudioClip>("BgMusic");
         ticking = Resources.Load<AudioClip>("Ticking");
+        endGame = Resources.Load<AudioClip>("ClockTwelve");
+        levelComplete = Resources.Load<AudioClip>("levelComplete");
         audioSrc = gameObject.GetComponent<AudioSource>();
         audioSrc.volume = 0.4f;
 
@@ -41,6 +45,12 @@ public class SfxManager : MonoBehaviour {
                 break;
             case "ticking":
                 audioSrc.PlayOneShot(ticking);
+                break;
+            case "levelComplete":
+                audioSrc.PlayOneShot(levelComplete);
+                break;
+            case "endGame":
+                audioSrc.PlayOneShot(endGame);
                 break;
             case "stop":
                 audioSrc.Stop();

@@ -11,14 +11,14 @@ public class PlayerManager : MonoBehaviour
     private bool isJumping = false;
     private bool isDead = false;
 
-    //private Animator anim;
+    private Animator anim;
     private Rigidbody2D rb;
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -55,11 +55,11 @@ public class PlayerManager : MonoBehaviour
             rb.velocity = new Vector3(x, rb.velocity.y, 0);
             
             // Jump
-            if (!isJumping && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))
+            if (!isJumping && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
             {
                 isJumping = true;
                 SfxManager.PlaySound("jump");
-                //anim.SetBool("isJumping", true);
+                anim.SetBool("isJumping", true);
                 rb.velocity = new Vector3(rb.velocity.x, jumpSpeedY, 0);
             }
 
@@ -71,14 +71,14 @@ public class PlayerManager : MonoBehaviour
                 rb.velocity = vel;
             }
 
-            //if (rb.velocity.x != 0)
-            //{
-            //    anim.SetBool("isRunning", true);
-            //}
-            //else
-            //{
-            //    anim.SetBool("isRunning", false);
-            //}
+            if (rb.velocity.x != 0)
+            {
+                anim.SetBool("isRunning", true);
+            }
+            else
+            {
+                anim.SetBool("isRunning", false);
+            }
 
             // Flip
             if (goingRight && !facingRight || !goingRight && facingRight)
@@ -99,7 +99,7 @@ public class PlayerManager : MonoBehaviour
             //Debug.Log("JUmp reset");
             rb.velocity = new Vector3(0, 0, 0);
             isJumping = false;
-            //anim.SetBool("isJumping", false);
+            anim.SetBool("isJumping", false);
         }
         
         if (collision.gameObject.tag == "Key" && !GameManager.hasPickedUp)
@@ -107,7 +107,7 @@ public class PlayerManager : MonoBehaviour
             Debug.Log("pick up key");
             GameManager.resetTraps();
             GameManager.startTimerCountdown();
-            GameManager.hasPickedUp = true;
+            GameManager.pickUp();
         }
 
         if (collision.gameObject.tag == "Trap")
@@ -133,7 +133,7 @@ public class PlayerManager : MonoBehaviour
             {
                 isJumping = true;
                 SfxManager.PlaySound("jump");
-                //anim.SetBool("isJumping", true);
+                anim.SetBool("isJumping", true);
                 rb.velocity = new Vector3(rb.velocity.x, jumpSpeedY * 2, 0);
             }
             else if (collision.gameObject.GetComponent<Trap>().type == Trap.Type.Wall)
@@ -149,16 +149,26 @@ public class PlayerManager : MonoBehaviour
 
     private void killPlayer() {
         Debug.Log("I died");
-        SfxManager.PlaySound("clockDeath");
+        //SfxManager.PlaySound("clockDeath");
         isDead = true;
+        anim.SetBool("isDead", true);
 
-        GameManager.restartLevel(false);
-        StartCoroutine(delayInput(0.9f));
+        StartCoroutine(delayRestart(0.5f));
     }
 
-    IEnumerator delayInput(float delay)
+    private void resetPlayerAnimation()
+    {
+        anim.SetBool("isDead", false);
+        isJumping = false;
+    }
+
+
+    IEnumerator delayRestart(float delay)
     {
         yield return new WaitForSeconds(delay);
+        GameManager.restartLevel(false);
+        resetPlayerAnimation();
+        yield return new WaitForSeconds(delay*2);
         isDead = false;
     }
 }
