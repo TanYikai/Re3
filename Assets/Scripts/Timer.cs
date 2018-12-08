@@ -23,6 +23,7 @@ public class Timer : MonoBehaviour {
     {
         startTime = Time.time;
         startCd = true;
+        SfxManager.PlaySound("ticking");
     }
 
     public void stopTimer()
@@ -42,6 +43,7 @@ public class Timer : MonoBehaviour {
             if (secondsLeft == "0")
             {
                 stopTimer();
+                SfxManager.PlaySound("stop");
                 GameManager.restartLevel(false);
             }
         }

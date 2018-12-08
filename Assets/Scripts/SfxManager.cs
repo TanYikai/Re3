@@ -7,6 +7,7 @@ public class SfxManager : MonoBehaviour {
     public static AudioClip clockDeath;
     public static AudioClip arrowShooting;
     public static AudioClip backgroundMusic;
+    public static AudioClip ticking;
 
     private static bool muteSfx;
 
@@ -19,9 +20,9 @@ public class SfxManager : MonoBehaviour {
         clockDeath = Resources.Load<AudioClip>("Dying");
         arrowShooting = Resources.Load<AudioClip>("Arrow");
         backgroundMusic = Resources.Load<AudioClip>("BgMusic");
-
+        ticking = Resources.Load<AudioClip>("Ticking");
         audioSrc = gameObject.GetComponent<AudioSource>();
-        audioSrc.volume = 0.3f;
+        audioSrc.volume = 0.4f;
 
     }
 
@@ -39,9 +40,24 @@ public class SfxManager : MonoBehaviour {
                 audioSrc.PlayOneShot(arrowShooting);
                 break;
             case "backgroundMusic":
-                audioSrc.PlayOneShot(backgroundMusic);
+                audioSrc.loop = true;
+                audioSrc.clip = backgroundMusic;
+                audioSrc.Play();
+                break;
+            case "ticking":
+                audioSrc.PlayOneShot(ticking);
+                break;
+            case "stop":
+                audioSrc.Stop();
                 break;
         }
+    }
+
+    public void PlayBgMusic()
+    {
+        audioSrc.loop = true;
+        audioSrc.clip = backgroundMusic;
+        audioSrc.Play();
     }
 
     public AudioSource getAudioSource()
