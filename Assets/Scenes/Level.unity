@@ -881,10 +881,6 @@ Prefab:
       propertyPath: m_Name
       value: platform (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 4905000166335358, guid: 47cbf864e62f3724183e13b8b1484833, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.695708
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47cbf864e62f3724183e13b8b1484833, type: 2}
   m_IsPrefabAsset: 0
@@ -1638,7 +1634,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4905000166335358, guid: 47cbf864e62f3724183e13b8b1484833, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.33
+      value: -8.17
       objectReference: {fileID: 0}
     - target: {fileID: 4905000166335358, guid: 47cbf864e62f3724183e13b8b1484833, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3437,7 +3433,7 @@ GameObject:
   - component: {fileID: 1409996462}
   m_Layer: 0
   m_Name: door
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
