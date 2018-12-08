@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        level = 11;
+        level = 0;
         player = GameObject.Find("player");
         playerInitPos = player.transform.position;
         timerText = GameObject.Find("TimerText");
@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Level " + level);
         if (level >= 12) {
+            SfxManager.PlaySound("endGame");
             Debug.Log("End");
             fadeScreen.GetComponent<Fade>().FadeOut();
 
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<Transform>().position = playerInitPos;
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         resetTraps();
-        timerText.GetComponent<Timer>().stopTimer();
+        timerText.GetComponent<Timer>().stopTimer(hasCompletedLevel);
         fadeScreen.GetComponent<Fade>().FadeIn();
         setUpLevel();
     }
