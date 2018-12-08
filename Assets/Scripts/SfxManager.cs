@@ -21,7 +21,6 @@ public class SfxManager : MonoBehaviour {
         jump = Resources.Load<AudioClip>("Jump");
         clockDeath = Resources.Load<AudioClip>("Dying");
         arrowShooting = Resources.Load<AudioClip>("Arrow");
-        backgroundMusic = Resources.Load<AudioClip>("BgMusic");
         ticking = Resources.Load<AudioClip>("Ticking");
         endGame = Resources.Load<AudioClip>("ClockTwelve");
         levelComplete = Resources.Load<AudioClip>("levelComplete");
