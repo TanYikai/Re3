@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        level = 10;
+        level = 0;
         player = GameObject.Find("player");
         key = GameObject.Find("key");
         key.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Part " + (level + 1));
