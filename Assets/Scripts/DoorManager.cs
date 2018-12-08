@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DoorManager : MonoBehaviour {
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.tag == "Player" && GameManager.hasPickedUp == true)
+        if (collider.gameObject.tag == "Player" && GameManager.hasPickedUp == true)
         {
             // new level
             GameManager.restartLevel(true);
