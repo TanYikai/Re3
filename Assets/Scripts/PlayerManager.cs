@@ -117,7 +117,8 @@ public class PlayerManager : MonoBehaviour
             {
                 if (collision.gameObject.GetComponent<Trap>().isActivated)
                 {
-                    if (gameObject.transform.position.y < collision.gameObject.transform.position.y)
+                    if (Mathf.Abs(gameObject.transform.position.x-collision.gameObject.transform.position.x) <= 2 &&
+                        gameObject.transform.position.y < collision.gameObject.transform.position.y)
                     {
                         killPlayer();
                     }
