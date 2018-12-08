@@ -20,14 +20,17 @@ public class LevelGearUI : MonoBehaviour {
 
         for (int i = 0; i < GameManager.level; i++)
         {
-                if (i % 2 == 0)
-                {
-                    gears[i].transform.Rotate(new Vector3(0,0, Time.deltaTime * 50) );
-                }
-                else
-                {
-                    gears[i].transform.Rotate(new Vector3(0, 0, Time.deltaTime * -50));
-                }
+            Color color = gears[i].GetComponent<SpriteRenderer>().color;
+            color.a = 0.60f;
+            gears[i].GetComponent<SpriteRenderer>().color = color;
+            if (i % 2 == 0)
+            {
+                gears[i].transform.Rotate(new Vector3(0,0, Time.deltaTime * 50) );
+            }
+            else
+            {
+                gears[i].transform.Rotate(new Vector3(0, 0, Time.deltaTime * -50));
+            }
         }
 
     }
