@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static int level;
 
     private static GameObject player;
+    private static GameObject key;
     private static Vector3 playerInitPos;
     private static GameManager Instance;
     private static GameObject timerText;
@@ -31,8 +32,10 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        level = 11;
+        level = 0;
         player = GameObject.Find("player");
+        key = GameObject.Find("key");
+        key.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Part " + (level + 1));
         playerInitPos = player.transform.position;
         timerText = GameObject.Find("TimerText");
         fadeScreen = GameObject.Find("FadeScreen");
@@ -86,7 +89,8 @@ public class GameManager : MonoBehaviour
         {
             level++;
         }
-        // TODO: move player back to initial position
+        key.GetComponent<SpriteRenderer>().enabled = true;
+        key.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Part " + (level + 1));
         player.GetComponent<Transform>().position = playerInitPos;
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         resetTraps();
@@ -107,6 +111,12 @@ public class GameManager : MonoBehaviour
             platform.SetActive(true);
         }
         
+    }
+
+    public static void pickUp()
+    {
+        key.GetComponent<SpriteRenderer>().enabled = false;
+        hasPickedUp = true;
     }
 
     public static void startTimerCountdown()

@@ -107,7 +107,7 @@ public class PlayerManager : MonoBehaviour
             Debug.Log("pick up key");
             GameManager.resetTraps();
             GameManager.startTimerCountdown();
-            GameManager.hasPickedUp = true;
+            GameManager.pickUp();
         }
 
         if (collision.gameObject.tag == "Trap")
