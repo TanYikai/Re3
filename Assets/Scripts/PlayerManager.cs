@@ -55,7 +55,7 @@ public class PlayerManager : MonoBehaviour
             rb.velocity = new Vector3(x, rb.velocity.y, 0);
             
             // Jump
-            if (!isJumping && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))
+            if (!isJumping && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
             {
                 isJumping = true;
                 SfxManager.PlaySound("jump");
