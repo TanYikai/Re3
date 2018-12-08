@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        level = 0;
+        level = 11;
         player = GameObject.Find("player");
         playerInitPos = player.transform.position;
         timerText = GameObject.Find("TimerText");
@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
         {
             trap.deactivate();
         }
+
         foreach (GameObject platform in disappearPlatforms)
         {
             platform.SetActive(true);
