@@ -159,8 +159,6 @@ public class PlayerManager : MonoBehaviour
     private void resetPlayerAnimation()
     {
         anim.SetBool("isDead", false);
-        facingRight = true;
-        goingRight = true;
         isJumping = false;
     }
 

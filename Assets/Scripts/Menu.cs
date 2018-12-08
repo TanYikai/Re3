@@ -13,4 +13,9 @@ public class Menu : MonoBehaviour {
         Debug.Log("Start");
         animator.SetTrigger("FadeOut");
     }
+
+    public void QuitGame() {
+        Debug.Log("Quit");
+        Application.Quit();
+    }
 }
