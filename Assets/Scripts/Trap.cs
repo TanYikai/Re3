@@ -60,6 +60,9 @@ public class Trap : MonoBehaviour {
             case Type.Wall:
                 //Debug.Log("I am a wall");
                 break;
+            case Type.Bounce:
+                gameObject.GetComponent<Animator>().SetTrigger("isSpring");
+                break;
         }
 
         isActivated = true;
@@ -89,8 +92,8 @@ public class Trap : MonoBehaviour {
                 gameObject.SetActive(true);
                 break;
             case Type.Bounce:
-                //Debug.Log("Reset bounce");
-                gameObject.SetActive(false);
+                Debug.Log("Reset bounce");
+                //gameObject.SetActive(false);
                 break;
             case Type.Wall:
                 Debug.Log("Reset wall");
