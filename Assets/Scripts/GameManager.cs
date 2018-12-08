@@ -62,7 +62,14 @@ public class GameManager : MonoBehaviour
         //sfxManager.GetComponent<SfxManager>().PlaySound("backgroundMusic");
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 
+    }
 
     private static void setUpLevel()
     {
