@@ -151,6 +151,7 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("I died");
         SfxManager.PlaySound("clockDeath");
         isDead = true;
+
         GameManager.restartLevel(false);
         StartCoroutine(delayInput(0.9f));
     }

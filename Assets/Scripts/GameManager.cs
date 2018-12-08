@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private static GameManager Instance;
     private static GameObject timerText;
     private static GameObject fadeScreen;
+    private static GameObject sfxManager;
     private static List<Trap> traps;
     private static List<Trigger> trapTriggers;
     private static GameObject[] trapGameObjects;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
         playerInitPos = player.transform.position;
         timerText = GameObject.Find("TimerText");
         fadeScreen = GameObject.Find("FadeScreen");
+        sfxManager = GameObject.Find("SfxManager");
         disappearPlatforms = GameObject.FindGameObjectsWithTag("Disappear");
         //traps = FindObjectsOfType(typeof(Trap)) as Trap[];
         trapGameObjects = GameObject.FindGameObjectsWithTag("Trap");
@@ -53,7 +55,11 @@ public class GameManager : MonoBehaviour
 
         resetTraps();
         setUpLevel();
+        //SfxManager.PlaySound("backgroundMusic");
+        //sfxManager.GetComponent<SfxManager>().PlaySound("backgroundMusic");
     }
+
+
 
     private static void setUpLevel()
     {

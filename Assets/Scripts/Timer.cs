@@ -28,6 +28,8 @@ public class Timer : MonoBehaviour {
 
     public void stopTimer()
     {
+        SfxManager.PlaySound("stop");
+        SfxManager.PlaySound("clockDeath");
         timerText.text = "";
         startCd = false;
     }
@@ -43,7 +45,7 @@ public class Timer : MonoBehaviour {
             if (secondsLeft == "0")
             {
                 stopTimer();
-                SfxManager.PlaySound("stop");
+
                 GameManager.restartLevel(false);
             }
         }

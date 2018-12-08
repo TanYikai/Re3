@@ -15,7 +15,7 @@ public class SfxManager : MonoBehaviour {
     private static SfxManager instance = null;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         jump = Resources.Load<AudioClip>("Jump");
         clockDeath = Resources.Load<AudioClip>("Dying");
         arrowShooting = Resources.Load<AudioClip>("Arrow");
@@ -39,11 +39,6 @@ public class SfxManager : MonoBehaviour {
             case "arrowShooting":
                 audioSrc.PlayOneShot(arrowShooting);
                 break;
-            case "backgroundMusic":
-                audioSrc.loop = true;
-                audioSrc.clip = backgroundMusic;
-                audioSrc.Play();
-                break;
             case "ticking":
                 audioSrc.PlayOneShot(ticking);
                 break;
@@ -51,13 +46,6 @@ public class SfxManager : MonoBehaviour {
                 audioSrc.Stop();
                 break;
         }
-    }
-
-    public void PlayBgMusic()
-    {
-        audioSrc.loop = true;
-        audioSrc.clip = backgroundMusic;
-        audioSrc.Play();
     }
 
     public AudioSource getAudioSource()
