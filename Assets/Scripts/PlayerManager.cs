@@ -153,23 +153,24 @@ public class PlayerManager : MonoBehaviour
         isDead = true;
         anim.SetBool("isDead", true);
 
-        StartCoroutine(delayInput(0.5f));
+        StartCoroutine(delayRestart(0.5f));
     }
 
-    private void resetPlayer()
+    private void resetPlayerAnimation()
     {
-        // make player alive again
-        isDead = false;
         anim.SetBool("isDead", false);
         facingRight = true;
         goingRight = true;
         isJumping = false;
-}
+    }
 
-    IEnumerator delayInput(float delay)
+
+    IEnumerator delayRestart(float delay)
     {
         yield return new WaitForSeconds(delay);
         GameManager.restartLevel(false);
-        resetPlayer();
+        resetPlayerAnimation();
+        yield return new WaitForSeconds(delay*2);
+        isDead = false;
     }
 }
