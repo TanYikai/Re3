@@ -149,7 +149,7 @@ public class PlayerManager : MonoBehaviour
 
     private void killPlayer() {
         Debug.Log("I died");
-        SfxManager.PlaySound("clockDeath");
+        //SfxManager.PlaySound("clockDeath");
         isDead = true;
         anim.SetBool("isDead", true);
 

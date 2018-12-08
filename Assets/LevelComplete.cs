@@ -9,7 +9,7 @@ public class LevelComplete : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Invoke("TransitBackMenu", 2f);
+        Invoke("TransitBackMenu", 5f);
 	}
 	
 	// Update is called once per frame
