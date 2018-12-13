@@ -130,12 +130,17 @@ public class PlayerManager : MonoBehaviour
                     }
                 }
             }
-            else if (collision.gameObject.GetComponent<Trap>().type == Trap.Type.Bounce && GameManager.level>=8)
+            else if (collision.gameObject.GetComponent<Trap>().type == Trap.Type.Bounce)
             {
-                isJumping = true;
-                SfxManager.PlaySound("jump");
-                anim.SetBool("isJumping", true);
-                rb.velocity = new Vector3(rb.velocity.x, jumpSpeedY * 2, 0);
+                if (GameManager.level >= 8)
+                {
+                    isJumping = true;
+                    SfxManager.PlaySound("jump");
+                    anim.SetBool("isJumping", true);
+                    rb.velocity = new Vector3(rb.velocity.x, jumpSpeedY * 2, 0);
+                }
+                isJumping = false;
+                anim.SetBool("isJumping", false);
             }
             else if (collision.gameObject.GetComponent<Trap>().type == Trap.Type.Wall || collision.gameObject.GetComponent<Trap>().type == Trap.Type.Bounce)
             {

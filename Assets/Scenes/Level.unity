@@ -2810,6 +2810,11 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114807142820760356, guid: d2db7e0cb0910344b99216ddcc56e6ba,
+        type: 2}
+      propertyPath: speedX
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2db7e0cb0910344b99216ddcc56e6ba, type: 2}
   m_IsPrefabAsset: 0
