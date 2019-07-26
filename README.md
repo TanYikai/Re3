@@ -1,4 +1,4 @@
-# teamthyme
+# Re3 
 
 Re3: Remember.Rewind.Repeat is about repeating a single level over and over again. 
 
